@@ -9,6 +9,17 @@
       ;
 
       return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    // random date betwen options.start and options.end
+    // defaults to dates over the past year.
+    // can also pass in format string, defaults to MM/DD/YYYY
+    "randomDate": function(options){
+      var MS_PER_YEAR = 365 * 24 * 60 * 60 * 1000;
+
+      var start = options.start || new Date(new Date() - msPerYear) // one year ago
+        , end = options.end || new Date() // today
+        , format = options.format || new Date() // today
+      ; 
     }
   };
   
