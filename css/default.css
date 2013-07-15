@@ -12,6 +12,7 @@ aside { float: right; padding: 5px; border: 1px solid #F2EFE4; background: #ccc;
 header { border-bottom: 1px solid #D9D4C7;  }
 h1 { font-size: 5em; color: #D9D4C7; }
 p { font-size: 1em; color: #69788C; padding: 5px 0; }
+a { color: #778BA6; }
 input[type=text], input[type=date] { 
   margin: 5px 0;
   padding: 10px;
