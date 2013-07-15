@@ -1,32 +1,42 @@
 ;(function(exports) {
 
+  var generators = {
+    // random int between options.min and options.max
+    // defaults to 0 - 100;
+    "randomNumber": function(options){
+      var min = options.min || 0
+        , max = options.max || 100
+      ;
+
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  };
+  
   var data = {
     size: 0,
     nodes: [],
-    addNode: function(key, value){
-      this.nodes.push({key: key, value: value});
+    addNode: function(key, generator, options){
+      this.nodes.push({key: key, generator: generator, options: options});
     },
     generate: function(){
       var results = [];
       for(var i=0; i<this.size; i++){
         var obj = {};
         this.nodes.forEach(function(node){
-          var min = 0;
-          var max = 1000;
-          obj[node.key] = Math.floor(Math.random() * (max - min + 1)) + min;
-        })
+          obj[node.key] = node.generator(node.options);
+        });
         results.push(obj);  
       }
       return JSON.stringify(results, null, '  ');
     }
-  }
+  };
 
   var duplicateSet = function(){
     var set = document.querySelectorAll('.kvSet')[0];
     var dupSet = set.cloneNode(true);
 
     return dupSet;
-  }
+  };
 
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -48,8 +58,10 @@
       for(var i=0; i<sets.length; i++){
         console.log(sets[i]);
         var key = sets[i].querySelectorAll('[name=key]')[0].value;
-        var value = sets[i].querySelectorAll('[name=value]')[0].value;
-        data.addNode(key, value);
+        var generator = sets[i].querySelectorAll('[name=generator]')[0].value;
+        var options = { min: 0, max: 1000 }; //sets[i].querySelectorAll('[name=value]')[0].value;
+
+        data.addNode(key, generators[generator], options);
       }
 
       var blob = new Blob([data.generate()], {type: "text/plain;charset=utf-8"});
@@ -61,7 +73,7 @@
       event.preventDefault();
       var dupSet = duplicateSet();
       form.appendChild(dupSet);
-    })
+    });
 
 
   });
