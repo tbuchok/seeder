@@ -1,22 +1,41 @@
 <html>
 <head>
   <title>Seeder</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="seeder.js"></script>
 </head>
 <body>
-  <form id="seeder">
-    <input type="text" name="numberOfRecords" placeholder="number of records" />
-    <div class="kvSet">
-      <input name="key" type="text" placeholder="key" />
-      <select name="value" class="data-type-toggle">
-        <option value="random">rand</option>
-      </select>
-    </div>
-    <input type="submit">
-  </form>
-  <a id="addChild" href="#">Add Child</a>
-
+  <header>
+    <h1>Seeder</h1>
+    <p>Generate JSON models for your objects</p>
+  </header>
+  <div id="container">
+    <section>
+      <form id="seeder">
+        <input type="text" name="numberOfRecords" placeholder="number of records" />
+        <div class="kvSet">
+          <input name="key" type="text" placeholder="key" />
+          <select name="value" class="data-type-toggle">
+            <option value="random">rand</option>
+          </select>
+          <input class='min' name="min" type="date" placeholder="min" />
+          <input class='max' name="max" type="date" placeholder="max" />
+        </div>
+        <input type="submit">
+      </form>
+      <a id="addChild" href="#">Add Child</a>
+    </section>
+    <aside>
+      <div id="representation">
+        {<br />
+          &nbsp;&nbsp;...<br />
+          &nbsp;&nbsp;"key": 1<br />
+          &nbsp;&nbsp;...<br />
+        }<br />
+      </div>
+    </aside>
+  </div>
 </body>
 </html>

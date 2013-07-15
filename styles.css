@@ -1,1 +1,40 @@
-.hidden { display: none; }
+body { padding: 3%; text-align: center; background: #3B3C40; font-family: 'Verdana', sans-serif; }
+/*
+dark-blue: #3B3C40;
+light-blue: #778BA6;
+darkish=blue: #69788C;
+tan: #F2EFE4;
+khaki: #D9D4C7;
+*/
+#container { text-align: left; margin: 0 auto; width: 100%; padding: 15px; }
+section { width : 50%; float: left; } 
+aside { float: right; padding: 5px; border: 1px solid #F2EFE4; background: #ccc; font-family: 'Courier'; border-radius: 5px; width: 45%; line-height: 1.5em; }
+header { border-bottom: 1px solid #D9D4C7;  }
+h1 { font-size: 5em; color: #D9D4C7; }
+p { font-size: 1em; color: #69788C; padding: 5px 0; }
+input[type=text], input[type=date] { 
+  margin: 5px 0;
+  padding: 10px;
+  height: 50px;
+  width: 250px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 0 3px 0px #D9D4C7;
+}
+input[type=text].min, input[type=text].max,
+input[type=date].min, input[type=date].max {
+  width: 150px;
+  text-align: center;
+}
+input[type=submit] { 
+  border: none;
+  border-radius: 5px;
+  background: #778BA6;
+  width: 250px;
+  height: 35px;
+  box-shadow: 0 3px 0px #ccc;
+  cursor: pointer;
+  margin: 5px 0;
+}
